@@ -9,41 +9,40 @@ import { Blue } from './boxes/blue'
 import { BikesMenu } from './bikes/bikes-menu'
 import { bikes } from './bikes/bikes'
 import { Bike } from './bikes/bike'
+import { RouterWrapper } from './router-wrapper'
+import { PageWrapper } from './page-wrapper'
+import { Footer } from './footer'
 
 export const App = () =>
-  <React.Fragment>
-    <Router>
-      <React.Fragment>
+  <Router className='router'>
+    <RouterWrapper>
 
+      <PageWrapper class='page-wrapper'>
         <BoxesMenu items={colors} />
         <h1>Boxes</h1>
 
-        <section>
+        <Switch>
           <Route exact path="/red" component={titles.RedTitle} />
           <Route exact path="/green" component={titles.GreenTitle} />
           <Route exact path="/blue" component={titles.BlueTitle} />
-        </section>
+        </Switch>
 
         <Switch>
-          <Route exact path="*/red" component={Red} />
-          <Route exact path="*/green" component={Green} />
-          <Route exact path="*/blue" component={Blue} />
+          <Route exact path="/red" component={Red} />
+          <Route exact path="/green" component={Green} />
+          <Route exact path="/blue" component={Blue} />
         </Switch>
-        </React.Fragment>
-      </Router>
 
         <br/>
 
-      <Router>
-        <React.Fragment>
-          <BikesMenu items={bikes} />
-          <h1>Bikes</h1>
-          <Route path="/bikes/:id" component={Bike} />
-        </React.Fragment>
-      </Router>
+        <BikesMenu items={bikes} />
+        <h1>Bikes</h1>
+        <Route path="/bikes/:id" component={Bike} />
 
+        <div className='push'></div>
+      </PageWrapper>
 
-    </React.Fragment>
+      <Route path="/(Red|Green|Blue|!bikes)" component={Footer} />
 
-
-//NOTES: https://tylermcginnis.com/react-router-cannot-get-url-refresh/
+    </RouterWrapper>
+  </Router>

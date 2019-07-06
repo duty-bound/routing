@@ -1,5 +1,6 @@
-body {
+html, body {
   font-family: 'arial';
+  height: 100%;
   margin: 0;
 }
 
@@ -42,8 +43,14 @@ a:active {
   text-decoration: none;
 }
 
-h2 {
+h1 {
   margin: 10px;
+  color: RGB(100, 100, 100);
+}
+
+h2 {
+  margin: 30px;
+  color: RGB(150, 150, 150);
 }
 
 .box {
@@ -63,4 +70,40 @@ h2 {
 
 .blue {
   background-color: RGB(100, 100, 150);
+}
+
+.router-wrapper {
+  height: 100%;
+}
+
+#mountNode {
+  height: 100%;
+}
+
+.page-wrapper {
+  height: 100%;
+}
+
+.page-wrapper {
+  height: 100%;
+  margin-bottom: -100px;
+}
+
+.push {
+  height: 200px;
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  line-height: 200px;
+  text-align: center;
+  color: RGB(250, 250, 250);
+  background-color: RGB(50, 50, 50);
+}
+
+.quote {
+  font-style: italic;
+  margin:0;
 }
